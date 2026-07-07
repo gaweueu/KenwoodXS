@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+- Fixed minor dependency issues
+
 ## 1.2.0
 
 - Added an ESPHome external component with received-command sensors and command buttons.
