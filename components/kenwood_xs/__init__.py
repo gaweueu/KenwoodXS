@@ -7,7 +7,7 @@ from esphome.const import (
 )
 
 CODEOWNERS = ["@gaweueu"]
-DEPENDENCIES = ["sensor", "text_sensor"]
+AUTO_LOAD = ["sensor", "text_sensor"]
 
 CONF_BIDIRECTIONAL = "bidirectional"
 CONF_CTRL_PIN = "ctrl_pin"
