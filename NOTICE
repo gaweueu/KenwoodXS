@@ -1,0 +1,11 @@
+KenwoodXS
+Copyright 2026 Gaweł Bartosik
+
+This product includes software developed by Gaweł Bartosik.
+
+Protocol timing notes and command references are based on public reverse
+engineering notes by Olaf Such, originally posted to de.sci.electronics in
+1997.
+
+This project was also informed by prior Kenwood XS exploration in pyKenwoodXS
+by Joseph Madera and saproj.

@@ -1,0 +1,70 @@
+#######################################
+# Syntax Coloring Map For KenwoodXS
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+KenwoodXS	KEYWORD1
+KenwoodXSCommand	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+sendCommand	KEYWORD2
+powerOn	KEYWORD2
+powerOff	KEYWORD2
+selectInput	KEYWORD2
+playTapeA	KEYWORD2
+stopTapeA	KEYWORD2
+playTapeB	KEYWORD2
+stopTapeB	KEYWORD2
+playCD	KEYWORD2
+stopCD	KEYWORD2
+startCD	KEYWORD2
+tryAllCommands	KEYWORD2
+onCommandSentCallback	KEYWORD2
+setDebugOutput	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+POWER_ON	LITERAL1
+POWER_OFF	LITERAL1
+BAND	LITERAL1
+PLUS_10	LITERAL1
+TAPE_2_ON	LITERAL1
+TAPE_2_OFF	LITERAL1
+VIDEO_2	LITERAL1
+PHONO	LITERAL1
+TAPE_1	LITERAL1
+VIDEO_1	LITERAL1
+TUNER	LITERAL1
+CD	LITERAL1
+TA_FAST_FORWARD	LITERAL1
+TA_STOP	LITERAL1
+TA_PLAY	LITERAL1
+TA_RECORD	LITERAL1
+TA_REWIND	LITERAL1
+TA_PAUSE	LITERAL1
+TA_REWIND_SLOW	LITERAL1
+TB_FAST_FORWARD	LITERAL1
+TB_STOP	LITERAL1
+TB_PLAY	LITERAL1
+TB_RECORD	LITERAL1
+TB_REWIND	LITERAL1
+TB_PAUSE	LITERAL1
+TB_REWIND_SLOW	LITERAL1
+CD_PLAY_PAUSE	LITERAL1
+CD_STOP	LITERAL1
+CD_DISC	LITERAL1
+CD_FAST_FORWARD	LITERAL1
+CD_REWIND	LITERAL1
+CD_NEXT_TRACK	LITERAL1
+CD_PREV_TRACK	LITERAL1
+CD_SCRUB_STOP	LITERAL1
+CD_START	LITERAL1

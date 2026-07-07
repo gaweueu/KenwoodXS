@@ -1,0 +1,15 @@
+Image provenance
+================
+
+The image files in this directory were sourced from prior Kenwood XS
+documentation and exploration work by saproj and Joseph Madera.
+
+Files:
+
+- XS-Connection.jpg
+- remote.jpg
+- data_encoding_scheme_signal_diagram.png
+
+These images are included to preserve useful hardware reference material for
+the Kenwood XS protocol. See the repository NOTICE file for project-level
+attribution.
