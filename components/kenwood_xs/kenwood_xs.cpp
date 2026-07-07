@@ -10,7 +10,7 @@ KenwoodXSComponent::KenwoodXSComponent(uint8_t ctrl_pin, uint8_t sdat_pin)
     : ctrl_pin_(ctrl_pin), sdat_pin_(sdat_pin), kenwood_(ctrl_pin, sdat_pin) {}
 
 void KenwoodXSComponent::setup() {
-  this->kenwood_.begin();
+  this->kenwood_.begin(KENWOOD_XS_TRANSMIT_ONLY);
 }
 
 
