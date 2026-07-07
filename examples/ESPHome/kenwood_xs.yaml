@@ -32,11 +32,6 @@ kenwood_xs:
   id: kenwood_amp
   ctrl_pin: ${ctrl_pin}
   sdat_pin: ${sdat_pin}
-  bidirectional: true
-  last_command:
-    name: "Kenwood Last Command"
-  last_command_code:
-    name: "Kenwood Last Command Code"
 
 button:
   - platform: kenwood_xs
@@ -54,22 +49,3 @@ button:
     name: "Kenwood Input CD"
     command: CD
 
-  - platform: kenwood_xs
-    kenwood_xs_id: kenwood_amp
-    name: "Kenwood Input Tuner"
-    command: TUNER
-
-  - platform: kenwood_xs
-    kenwood_xs_id: kenwood_amp
-    name: "Kenwood CD Play Pause"
-    command: CD_PLAY_PAUSE
-
-  - platform: kenwood_xs
-    kenwood_xs_id: kenwood_amp
-    name: "Kenwood CD Stop"
-    command: CD_STOP
-
-  - platform: kenwood_xs
-    kenwood_xs_id: kenwood_amp
-    name: "Kenwood Raw 181"
-    command: 181
