@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+- Added an ESPHome external component with received-command sensors and command buttons.
+
 ## 1.1.0
 
 - Added bidirectional mode for listening to Kenwood XS command frames.

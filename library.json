@@ -1,13 +1,14 @@
 {
   "name": "KenwoodXS",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Arduino library for controlling and monitoring Kenwood audio equipment over the XS System Control bus.",
   "keywords": [
     "kenwood",
     "audio",
     "receiver",
     "system-control",
-    "arduino"
+    "arduino",
+    "esphome"
   ],
   "repository": {
     "type": "git",

@@ -55,6 +55,44 @@ lib_deps =
   https://github.com/gaweueu/KenwoodXS.git
 ```
 
+### ESPHome External Component
+
+KenwoodXS also includes an ESPHome external component under
+`components/kenwood_xs`. Use it when you want Home Assistant entities for a
+Kenwood XS amplifier or receiver.
+
+```yaml
+external_components:
+  - source: github://gaweueu/KenwoodXS
+    components: [kenwood_xs]
+
+kenwood_xs:
+  id: kenwood_amp
+  ctrl_pin: 4
+  sdat_pin: 5
+  bidirectional: true
+  last_command:
+    name: "Kenwood Last Command"
+  last_command_code:
+    name: "Kenwood Last Command Code"
+
+button:
+  - platform: kenwood_xs
+    kenwood_xs_id: kenwood_amp
+    name: "Kenwood Power On"
+    command: POWER_ON
+
+  - platform: kenwood_xs
+    kenwood_xs_id: kenwood_amp
+    name: "Kenwood Input CD"
+    command: CD
+```
+
+Command values may be named constants such as `POWER_ON`, `CD`, and
+`CD_PLAY_PAUSE`, or raw byte values from `0` to `255`. A complete ESP32-C3
+example is available in
+[`examples/ESPHome/kenwood_xs.yaml`](examples/ESPHome/kenwood_xs.yaml).
+
 ## Basic Usage
 
 ```cpp
