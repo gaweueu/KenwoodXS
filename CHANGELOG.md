@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- Added bidirectional mode for listening to Kenwood XS command frames.
+- Added nonblocking receive polling, receive callbacks, and command read helpers.
+- Added a bidirectional Serial monitor example.
+
 ## 1.0.0
 
 - Initial standalone Arduino library package.

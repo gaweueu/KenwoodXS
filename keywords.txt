@@ -8,13 +8,19 @@
 
 KenwoodXS	KEYWORD1
 KenwoodXSCommand	KEYWORD1
+KenwoodXSMode	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
 begin	KEYWORD2
+setMode	KEYWORD2
+mode	KEYWORD2
 sendCommand	KEYWORD2
+poll	KEYWORD2
+available	KEYWORD2
+readCommand	KEYWORD2
 powerOn	KEYWORD2
 powerOff	KEYWORD2
 selectInput	KEYWORD2
@@ -27,6 +33,7 @@ stopCD	KEYWORD2
 startCD	KEYWORD2
 tryAllCommands	KEYWORD2
 onCommandSentCallback	KEYWORD2
+onCommandReceivedCallback	KEYWORD2
 setDebugOutput	KEYWORD2
 
 #######################################
@@ -68,3 +75,5 @@ CD_NEXT_TRACK	LITERAL1
 CD_PREV_TRACK	LITERAL1
 CD_SCRUB_STOP	LITERAL1
 CD_START	LITERAL1
+KENWOOD_XS_TRANSMIT_ONLY	LITERAL1
+KENWOOD_XS_BIDIRECTIONAL	LITERAL1

@@ -37,6 +37,27 @@ Olaf's original description, paraphrased:
 4. The low pulse is about 15 ms for `0`, or about 7.5 ms for `1`.
 5. After 8 data bits, `CTRL` returns low.
 
+## Receive Decoding
+
+KenwoodXS can listen on the same `CTRL` and `SDAT` pins when started with
+`begin(KENWOOD_XS_BIDIRECTIONAL)`. In that mode, the library leaves both pins
+as inputs while idle, then temporarily drives them only while sending its own
+command.
+
+The receive decoder is nonblocking. Call `poll()` frequently from `loop()` and
+use `onCommandReceivedCallback()`, `available()`, or `readCommand()` to consume
+decoded command bytes.
+
+Receive timing is decoded from the low pulse width after the start bit:
+
+| Pulse width | Decoded bit |
+| ---: | --- |
+| About `7.5 ms` | `1` |
+| About `15 ms` | `0` |
+
+Pulses outside the broad valid timing window are treated as malformed frames
+and ignored.
+
 ## KX-3050 Cassette Deck Commands
 
 These commands were observed for the Kenwood KX-3050 cassette deck.

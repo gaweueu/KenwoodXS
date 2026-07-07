@@ -1,7 +1,7 @@
 {
   "name": "KenwoodXS",
   "version": "1.0.0",
-  "description": "Arduino library for controlling Kenwood audio equipment over the XS System Control bus.",
+  "description": "Arduino library for controlling and monitoring Kenwood audio equipment over the XS System Control bus.",
   "keywords": [
     "kenwood",
     "audio",

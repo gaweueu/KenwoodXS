@@ -53,15 +53,28 @@ enum KenwoodXSCommand {
     CD_START        = 222
 };
 
+enum KenwoodXSMode {
+    KENWOOD_XS_TRANSMIT_ONLY,
+    KENWOOD_XS_BIDIRECTIONAL
+};
+
 class KenwoodXS {
 
 public:
 typedef void (*OnCommandSentCallback)(byte command);
+typedef void (*OnCommandReceivedCallback)(byte command);
 
     KenwoodXS(int ctrlPin, int sdatPin);
-    void begin();
+    void begin(KenwoodXSMode mode = KENWOOD_XS_TRANSMIT_ONLY);
+    void begin(bool bidirectional);
+    void setMode(KenwoodXSMode mode);
+    KenwoodXSMode mode() const;
     void sendCommand(byte command);
     void sendCommand(KenwoodXSCommand command);
+    void poll();
+    bool available();
+    bool readCommand(byte &command);
+    bool readCommand(byte &command, unsigned long timeoutMs);
     void powerOn();
     void powerOff();
     void selectInput(KenwoodXSCommand input);
@@ -74,14 +87,38 @@ typedef void (*OnCommandSentCallback)(byte command);
     void startCD();
     void tryAllCommands(unsigned long delayMs = 1000);
     void onCommandSentCallback(OnCommandSentCallback callback);
+    void onCommandReceivedCallback(OnCommandReceivedCallback callback);
     void setDebugOutput(bool enabled);
 
 private:
+    enum ReceiveState {
+        RX_IDLE,
+        RX_WAIT_START_RISE,
+        RX_WAIT_START_FALL,
+        RX_WAIT_BIT_RISE,
+        RX_WAIT_BIT_FALL,
+        RX_WAIT_CTRL_LOW
+    };
+
     void sendByte(byte b);
+    void driveIdle();
+    void releaseBus();
+    void resetReceiveState();
+    void finishReceivedCommand(byte command);
+    bool classifyPulse(unsigned long widthUs, bool &bitValue) const;
     int _ctrlPin;
     int _sdatPin;
+    KenwoodXSMode _mode;
     bool _debugOutput;
+    bool _hasReceivedCommand;
+    byte _lastReceivedCommand;
+    ReceiveState _rxState;
+    byte _rxCommand;
+    byte _rxBitCount;
+    unsigned long _rxStateStartedAt;
+    unsigned long _rxLowStartedAt;
     OnCommandSentCallback _onCommandSentCallback;
+    OnCommandReceivedCallback _onCommandReceivedCallback;
     
     // Protocol timing constants
     static const int BIT_0 = 15000;  // 15ms for bit 0
@@ -89,6 +126,11 @@ private:
     static const int START_BIT_DELAY = 15;  // 15ms start bit
     static const int CTRL_SETUP_DELAY = 2;  // 2ms CTRL setup time
     static const int FRAME_SIGNAL_DELAY = 7500;  // 7.5ms frame signal
+    static const unsigned long RX_ONE_ZERO_THRESHOLD_US = 11250;
+    static const unsigned long RX_MIN_PULSE_US = 4000;
+    static const unsigned long RX_MAX_PULSE_US = 20000;
+    static const unsigned long RX_START_TIMEOUT_US = 30000;
+    static const unsigned long RX_FRAME_TIMEOUT_US = 30000;
 };
 
 #endif // KenwoodXS_H__
